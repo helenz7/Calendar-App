@@ -1,0 +1,100 @@
+/* Admin */
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 30;
+}
+
+table {
+  background-color: lightgray;
+}
+
+th {
+  background-color: dimgray;
+  color: white;
+}
+
+td {
+  padding: 3px;
+}
+
+p {
+  margin-top: 1px;
+}
+
+h1 {
+  margin-left: 70px;
+  display: inline-block;
+}
+
+h2 {
+  background-color: navy;
+  color: white;
+  padding: 10px;
+}
+
+label, #newButton, #Button{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#profile {
+  text-align: center;
+  font-weight: bold;
+	margin: 30px;
+	background-color: #616985;
+	border-radius: 10px;
+}
+
+label {
+  margin: 20px;
+}
+
+#userIcon {
+  width: 120px;
+  margin: 10px;
+  margin-top: 30px;
+}
+
+#uploadIcon {
+  display: none;
+  margin-bottom: 20px;
+}
+
+button {
+  margin: 4px;
+  margin-top: 3px;
+}
+
+#isSuccess {
+  display: none;
+  font-weight: bold;
+  color: green;
+}
+
+#hasAdded {
+  display: none;
+  font-weight: bold;
+  color: coral;
+}
+
+.rowId {
+  width: 130px;
+}
+
+.rowAction {
+  width: 170px;
+}
+
+.rowUsername {
+  width: 130px;
+}
+
+.empty {
+}
+
+input[type="text"] {
+	width: 80%;
+	display: inline-block;
+}

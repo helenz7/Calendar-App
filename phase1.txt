@@ -1,0 +1,31 @@
+team50 phase1.txt
+
+#####
+
+index.html:
+
+There are two input boxes and two buttons in this page. For now, we do not have any password check except it need to have more than six characters, and we can go to admin page by typing 'admin' in username box with any password. Otherwise, you will go to calendar page for regular users by typing any username and password. Also, we can go to signup.html by clicking Sign Up button.
+
+In sign up page, you should fill in the empty boxes with specific regulation. For now, when you click submit, you go back to login page.
+
+#####
+
+calendar.html:
+
+Profile information are shown in the left hand side of the page. There is an edit profile button which will lead to profile.html, and we can edit our profile there. On the right hand side, the above is event part. We can type the event in the box, and after click on Search button, a modal for the specific event detail will appear. At this moment, we cannot get event info from server yet, and later there will be an alter appears if the event does not exist. If we want to add new event, we can click on Add Event button and a event detail modal will show up. Title and date are required. After click on save, the added event is shown, but we cannot refresh the page since we do not have server yet, and we need to click Close button to close current modal. For the calendar part, we can see recent months by clicking arrow button above calendar, and go back to current month by clicking today button. We can check event description by putting mouse on the specific event. Also, we can delete event by clicking it, and there will be a small window to confirm the deletion.
+
+#####
+
+profile.html:
+
+If you click the "Edit Profile" button on left side, you would enter the profile management page. You would be able to change your profile photo and edit your personal infos here. By clicking the "Change Photo" button, you would be prompted to choose a local image as your profile picture. After entering your "User name", "Name", "Email" and "Description" in the textarea respectively, you can click the "Save" button to save the changes to server. The "Cancel" button would take you back to your main page.
+
+#####
+
+admin.html:
+
+From top of the page, the logout button will redirect (logout) to index.html. The admin icon can be updated with update button.
+
+In the User Manager section, the admin can add user with id, username, name and email address. The admin can also edit information for any user after clikcking edit button and save or cancel the editing by clicking save or cancel button respectively.
+
+In the Event Manager section, the admin can add event to the user's event list by entering event and uer id and click add-to-user button. The admin can also add event by clicking new event button and the event editing modal will popup which is the same as the event detail modal in calendar.html with title, date from and to, type and description of the event. The admin also can edit or delete any event after clicking the edit or delete button.

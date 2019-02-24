@@ -1,0 +1,64 @@
+.container {
+	margin-top: 2%;
+}
+
+#logOut {
+	float: right;
+}
+
+#profilePart {
+	right: 20px;
+	background: #deeff5;
+	opacity: 0.9;
+	border-radius: 10px;
+	min-width: 200px;
+}
+
+#profileImage {
+	width: 180px;
+	height: 180px;
+	top: 100px;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	border-radius: 50%;
+	border: solid white;
+}
+
+.grey {
+	color: grey;
+}
+
+#calendarPart {
+	border-radius: 10px;
+}
+
+#showEvenetInfo p {
+	font-weight: bold;
+}
+
+#showEvenetInfo span {
+	font-weight: normal;
+	color: black;
+}
+
+#descrptLabel {
+	min-width: 100px;
+}
+
+input[type="date"] {
+	width: 45%;
+	display: inline-block;
+}
+
+#smallPics {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin: auto;
+	border: solid white;
+}
+
+#eventInput {
+	width: 300px;
+}

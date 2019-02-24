@@ -1,0 +1,37 @@
+
+https://salty-sands-38565.herokuapp.com
+
+
+#####
+
+Login & Sign up:
+
+For regular users, they require to sign up for the first time, and the requirement is the same as phase1.txt. After sign up, users can login with their account. If users login successfully, they will go directly to calendar page.
+
+For admin, we have a default admin account with Username "admin666" and Password "admin666". By login with admin account, you will go to admin page.
+
+#####
+
+Calendar:
+
+For users calendar page, we show current session user's details on the left hand side. On the right hand side, we added a Logout button for users to logout their session. Adding event feature is the same as phase1.
+
+For searching events, the typed title input is required, and all events with this title will be ready to shown. Only one event detail is shown each time, and you can see the next and previous ones by clicking '>' or '<'. Also, we can see all users who are in the event now. By clicking their profile pic, their name and email are shown beside. We add a new feature which allows us to add event on Event Info modal(shown after searching). Users can add only new events directly by 'Add Event' button, otherwise, they have to search the event first, and then add events in Event Info modal. We can see events detail by put mouse over, and delete events by clicking them.
+
+######
+
+Profile:
+
+User's current profile info would be shown on the right side whereas the profile picture would be on the left side. All changes made (including the profile picture) would be saved on server(Password field is not required) after pressing the "save" button.
+
+######
+
+Admin:
+
+The admin can see userName, name and email address of all users in the first table. The admin can alse add, edit or delete users with each button. The default password for the admin-added user is <userName><userName>.
+
+The admin can also see all events in the system in the second table with the ability to add and delete events with each button. Viewing event details in modal is the same as the other user.
+
+The routes in the Express server uses session to keep track of the login status and admin/user access. For admin, there are get and post routes for getting data from the server/DB and sending new data back to it.
+The patch route updating the data to the DB. Delete route is obvious that it's used for removing certain data from DB.
+

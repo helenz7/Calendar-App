@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ 	<meta charset="utf-8">
+    <title>Admin</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/admin.css">
+ </head>
+ <body>
+ 	<h1>Calendar</h1>
+
+  <button class="btn btn-default btn-xs" id="logoutButton" onclick='window.location = "/logout"'>Logout</button>
+
+  <div id="profile">
+    <img id="userIcon" class="img-circle" src="/img/default.png">
+   	<p>Admin</p>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <h2>User Manager</h2>
+
+      <form id="add_user_form" class="form-inline">
+
+        <div class="form-group">
+          <label class="control-label" for="username">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="Username">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Name">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="name">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="example@email.com">
+        </div>
+
+        <input type="submit" class="btn btn-default" value="Add">
+      </form>
+
+      <br>
+
+      <div class="table-responsive">
+        <table class="table table-striped" id="user_table">
+          <tbody>
+            <tr>
+         			<th class="rowUsername">
+         				Username
+         			</th>
+         			<th class="rowName">
+         				Name
+         			</th>
+         			<th class="rowEmail">
+         				Email
+         			</th>
+              <th class="rowAction">
+                Action
+              </th>
+         		</tr>
+          </tbody>
+       	</table>
+      </div>
+
+    </div>
+
+    <br>
+
+    <div class="col-10">
+      <h2>Event Manager</h2>
+
+      <div id="new_event">
+        <button class="btn btn-info newButton" data-toggle="modal" data-target="#newEvent">New Event</button>
+      </div>
+
+      <br>
+
+      <!-- <form id="add_event_to_user_form" class="form-inline">
+        <div class="form-group">
+          <label class="control-label" for="thisUser">User</label>
+          <input type="text" class="form-control" id="thisUser" placeholder="User ID">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="thisEvent">Event</label>
+          <input type="text" class="form-control" id="thisEvent" placeholder="Event ID">
+        </div>
+
+        <input type="submit" class="btn btn-default" value="Add to User">
+        <span id="isSuccess">Success!</span>
+        <span id="hasAdded">Event has been added!</span>
+      </form> -->
+
+      <!-- Modal (popup window) for event detail. -->
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="eventDetail" aria-hidden="true" id="newEvent">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content" id="eventContent">
+
+            <div class="modal-header" id="eventDetail">
+              <h3>
+                Event Detail
+              </h3>
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+            <div class="modal-body">
+              <form id="eventDetailForm" class="form-inline">
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="newInputTitle">Title</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="newInputTitle" placeholder="Event Title">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="newDateFrom" class="col-sm-2 col-form-label">Date</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="form-control" id="newDateFrom" required minlength="6" maxlength="15">
+                    to
+                    <input type="date" class="form-control" id='newDateTo' required minlength="6" maxlength="15">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="newInputType" class="col-sm-2 col-form-label">Type</label>
+                  <div class="col-sm-10">
+                    <select id="newInputType" class="custom-select">
+                      <option>default</option>
+                      <option>study</option>
+                      <option>exam</option>
+                      <option>event</option>
+                      <option>holiday</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="newDescription">Description</label>
+                  <div class="col-sm-10">
+                    <textarea id="newDescription" class="form-control" maxlength="150" cols="50" placeholder="max word: 150"></textarea><br><span class="wordCount">150</span> remaining
+                  </div>
+
+                </div>
+              </form>
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-primary saveButton">Save</button>
+              <button class="btn btn-default cancelButton" data-dismiss="modal">Cancel</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="table-responsive">
+        <table class="table table-striped" id="event_table">
+          <tbody>
+            <tr>
+         			<th class="rowTitle">
+         				Event Title
+         			</th>
+              <th class="rowStart">
+                Start Date
+              </th>
+              <th class="rowEnd">
+                End Date
+              </th>
+              <th class="rowType">
+                Type
+              </th>
+         			<th class="rowAction">
+         				Action
+         			</th>
+         		</tr>
+          </tbody>
+       	</table>
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+
+ 	<br><br>
+
+ 	<script type="text/javascript" src="/js/admin.js"></script>
+ </body>
+</html>

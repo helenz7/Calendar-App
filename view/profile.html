@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ 	<meta charset="utf-8">
+    <title>profile</title>
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+ 	<div id="container">
+	<div id="profilePicture">
+		<img id="profilePicCircle" >
+		<input id="myImage" type="file">
+		<!-- <input id="changePhoto" type="button" value="change photo"> -->
+		<p id="message">Photo change success~!</p>
+		<button id="changePhoto" class="btn btn-primary">Change photo</button>
+	</div>
+	<div id="right">
+		<div id="userAdmin">
+
+		<h2 id="userAdminText">Account Management</h2>
+		</div>
+
+
+		<b id="profileManagement">
+			<form id="profileAddForm">
+			<br>
+				<p>Name:
+				<input id="name" type="text" class="form-control" placeholder="Name" required>
+				</p>
+				<p>Password:
+				<input id="password" type="password" class="form-control" placeholder="Password" >
+				</p>
+				<p>Email:
+				<input id="email" type="text" class="form-control" placeholder="Email" required>
+				</p>
+				<p>
+				Description:
+				</p>
+				<p>
+				<textarea id="description" class="form-control" maxlength="150" placeholder="Add your description here."></textarea>
+				</p>
+				<div id="count"><span class="wordCount">150</span> remaining</div>
+				<a id="backToMain" class="btn btn-primary" href="/calendar">Cancel</a>
+				<button type="submit" id="saveProfile" class="btn btn-primary">Save</button>
+			</form>
+		</b>
+	</div>
+	</div>
+
+
+
+	<script type="text/javascript" src="/js/profile.js"></script>
+ </body>
+</html>

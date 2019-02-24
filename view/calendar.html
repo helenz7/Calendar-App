@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Calendar</title>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/basic/jquery.qtip.min.js"></script>
+
+	<!-- Full Calendar and related -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/calendar.css">
+	<script type="text/javascript" src="/js/calendar.js"></script>
+</head>
+
+<body>
+
+	<div class="container">
+		<button onclick='window.location = "/logout"' id='logOut' class="btn btn-link">Logout</button>
+		<div class="row">
+			<div id="profilePart" class="col-sm-3">
+				<br>
+				<img id="profileImage" src="/img/default.png">
+				<br>
+				<h4 id="infoName">Full Name</h4>
+				<p id="infoUserName" class="grey">@username</p>
+				<p id="infoDescription">Leave anything here:)</p>
+				<a href="/profile" class="btn btn-outline-dark btn-sm">Edit Profile</a>
+			</div>
+
+			<div id="calendarPart" class="col-sm-9">
+				<div id="events">
+					<h2>Events</h2>
+					<form id="eventsForm" class="form-inline">
+						<input id="eventInput" class="form-control mr-sm-2" onfocus="this.value=''" type="text" placeholder="Search events title here" aria-label="Search" required>
+						<button id="searchEvent" class="btn btn-outline-info mr-sm-2" type="submit">Search</button>
+						<button id="addNewEvent" class="btn btn-outline-success" type="return">Add Event</button>
+					</form>
+					<p id='message'></p>
+				</div><br>
+
+				<div id="calendar"></div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- model for add event -->
+	<div class="modal fade bd-example-modal-lg" id="newEventDeatil" tabindex="-1" role="dialog" aria-labelledby="newEventDeatilTitle" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="newEventDeatilTitle">Event detail</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div id="eventDetailInfo" class="modal-body">
+						<form id="addNewForm">
+							<div class="form-group row">
+								<label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="inputTitle" placeholder="Title" required>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+								<div class="col-sm-10">
+									<input type="date" class="form-control" id="inputDate" placeholder=" load from backend" required minlength="6" maxlength="15">
+									 to
+									<input type="date" class="form-control" id='endDate' required minlength="6" maxlength="15">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputType" class="col-sm-2 col-form-label">Type</label>
+								<div class="col-sm-10">
+								<select id="inputType" class="custom-select" required>
+									<option>default</option>
+									<option>study</option>
+									<option>exam</option>
+									<option>event</option>
+									<option>holiday</option>
+								</select>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label id="descrptLabel" for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+								<div class="col-sm-10">
+									<textarea id="inputDescription" class="form-control" maxlength="150" placeholder="max word: 150"></textarea><span class="wordCount">150</span> remaining
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Save</button>
+							</div>
+						</form>
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- modal for show event info -->
+	<div id="showEvenetInfo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="showEvenetInfoLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="showEvenetInfoLabel">Event Info</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div id="searchEventInfo" class="modal-body">
+						<p>Title: <span> </span></p>
+						<p>Start date: <span>info</span></p>
+						<p>End date: <span>info</span></p>
+						<p>Type: <span>info</span></p>
+						<p>Description: <span>No description.</span></p>
+						<p>Users: <span id="showUsersPic"> </span> </p>
+					</div>
+				<div class="modal-footer">
+					<button id="prev" type="button" class="btn btn-light"><</button>
+					<button id="next" type="button" class="btn btn-light">></button>
+					<button id="add" type="button" class="btn btn-primary">Add Event</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>

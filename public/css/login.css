@@ -1,0 +1,36 @@
+ .container {
+	height: 70%;
+	margin-top: 30px;
+	text-align: center;
+	border-radius: 10px;
+}
+
+html, body {
+	height: 100%;
+	background-image: url("../img/login.jpg");
+	background-size: cover;
+}
+
+input {
+	border-radius: 10px;
+}
+
+.window {
+	top: 30%;
+	position: relative;
+	min-width: 200px;
+}
+
+#passwordMessage {
+	color: red;
+	font-weight: bold;
+	visibility: hidden;
+	margin-bottom: 0px;
+}
+
+#nameMessage {
+	color: red;
+	font-weight: bold;
+	visibility: hidden;
+	margin-bottom: 0px;
+}

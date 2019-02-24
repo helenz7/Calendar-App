@@ -1,0 +1,155 @@
+html, body {
+	/* background-color: #dce3ed; */
+	margin-left: 20px;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	background-image: url("../img/profile.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+p {
+	margin-left: 30px;
+}
+
+#profilePicture {
+	/* background-color: gold; */
+	width: 25%;
+	height: 100vh;
+	float:left;
+	background-color: white;
+	opacity: 0.6;
+	border-radius: 10px;
+	margin: 5%;
+}
+
+
+
+#profilePicCircle {
+	width: 200px;
+	height: 200px;
+	top: 100px;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	border-radius: 50%;
+	position: relative;
+	border: solid white;
+
+}
+
+#myImage {
+	visibility: hidden;
+
+}
+
+
+
+#changePhoto {
+	position:relative;
+	top: 20px;
+	margin-left:auto;
+	margin-right: auto;
+	display: block;
+
+}
+
+#right {
+	width: 50%;
+	margin: 5%;
+	margin-left:0;
+	margin-right: 10%;
+	height: 100vh;
+	float:left;
+	position: relative;
+	background-color: white;
+	opacity: 0.7;
+	border-radius: 10px;
+	min-width: 500px;
+	max-width: 700px;
+}
+
+
+#userAdmin {
+	/* background-color: blue; */
+	width: 100%;
+	height:20vh;
+	float: left;
+	position: relative;
+	text-align: center;
+}
+
+#userAdminText	{
+	margin-top: 60px;
+}
+
+#backToMain {
+	display: inline-block;
+	margin-left: 180px;
+}
+
+#profileManagement {
+	/* background-color: salmon; */
+	width:100%;
+	min-height: 500px;
+	height:70vh;
+	float:left;
+}
+
+
+#password{
+	margin-left: 25px;
+	width: 200px;
+	display: inline
+
+}
+
+#name {
+
+	margin-left: 50px;
+	width: 200px;
+	display: inline
+
+}
+
+#email {
+
+	margin-left: 54px;
+	width: 200px;
+	display: inline
+
+}
+
+
+
+#description {
+	width: 400px;
+	height: 200px;
+	margin-buttom: 0px;
+}
+
+
+#saveProfile {
+	width: 80px;
+}
+
+#container {
+	height: 100%;
+	min-width: 1000px;
+	width: 80%;
+}
+
+#count {
+	margin-left: 300px;
+	margin-top: 0px;
+}
+
+#message {
+	color: green;
+	font-weight: bold;
+	visibility: hidden;
+	margin-top: 100px;
+}

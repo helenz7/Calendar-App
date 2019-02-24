@@ -1,0 +1,28 @@
+.header {
+	margin-top: 5%;
+	text-align: center;
+}
+
+input {
+	border-radius: 10px;
+}
+
+.container {
+	height: 70%;
+	margin-top: 30px;
+	text-align: center;
+	border-radius: 10px;
+	margin-bottom: 30px;
+	background-color: white;
+	opacity: 0.7;
+	width: 20%;
+	min-width: 300px;
+	padding-bottom: 10px;
+}
+
+body {
+	height: 100%;
+	background-image: url("../img/signup.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
